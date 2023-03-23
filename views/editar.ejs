@@ -1,0 +1,29 @@
+<%- include('partes/header'); %>
+
+<% if(user){ %>
+
+<h2>Editar el Usuario: <%= user.name %></h2>
+
+<form action="/editar" method="post">
+    <input type="hidden" name="id" id="id" value="<%= user.id %>">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" tabindex="1" autofocus>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" tabindex="2">
+    </div>
+    <div class="mb-3">
+        <select name="rol" id="rol" class="form-select" tabindex="3">
+            <option <%= user.rol=='admin' ? 'selected' : '' %> value="admin">Administrador</option>
+            <option <%= user.rol=='suscrip' ? 'selected' : '' %> value="suscrip">Suscriptor</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" tabindex="4">Editar</button>
+    <a href="/" class="btn btn-secondary" tabindex="5">Cancelar</a>
+</form>
+
+<% } %>
+
+<%- include('partes/footer'); %>
