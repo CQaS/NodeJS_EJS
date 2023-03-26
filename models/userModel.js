@@ -64,7 +64,7 @@ exports.cook = (id, req, next) => {
     conexion.query('SELECT * FROM users WHERE id = ?', [id], (err, result) => {
         if (!err) {
             return next()
-            req.name = result[0]
+            row = result[0]
             return next()
         }
 

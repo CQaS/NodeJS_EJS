@@ -2,15 +2,35 @@ const conexion = require('../database/db')
 const userModel = require('../models/userModel')
 
 exports.index = (req, res) => {
-    res.render('index')
+    res.render('index', {
+        userName: row.name
+    })
+    res.render('index', {
+        userName: row.name
+    })
 }
 
 exports.listar = (req, res) => {
-    userModel.selectUsers(res)
+    if (row.rol == 'admin') {
+        userModel.selectUsers(res)
+
+    } else {
+        res.render('index', {
+            userName: row.name
+        })
+    }
+
 }
 
 exports.crearView = (req, res) => {
-    res.render('crear')
+    if (row.rol == 'admin') {
+        res.render('crear')
+    } else {
+        res.render('index', {
+            userName: row.name
+        })
+    }
+
 }
 
 exports.crear = (req, res) => {
@@ -41,9 +61,15 @@ exports.editarView = (req, res) => {
             console.error(err)
             res.render('notfound')
         } else {
-            res.render('editar', {
-                user: result[0]
-            })
+            if (row.rol == 'admin') {
+                res.render('editar', {
+                    user: result[0]
+                })
+            } else {
+                res.render('index', {
+                    userName: row.name
+                })
+            }
         }
     })
 }
@@ -71,13 +97,21 @@ exports.editar = (req, res) => {
 }
 
 exports.borrar = (req, res) => {
-    const id = req.params.id
-    conexion.query('DELETE FROM users WHERE id = ?', [id], (err, result) => {
-        if (err) {
-            console.error(err)
-            res.render('notfound')
-        } else {
-            res.redirect('/users')
-        }
-    })
+    if (row.rol == 'admin') {
+        const id = req.params.id
+        conexion.query('DELETE FROM users WHERE id = ?', [id], (err, result) => {
+            if (err) {
+                console.error(err)
+                res.render('notfound')
+            } else {
+                res.redirect('/users')
+            }
+        })
+
+    } else {
+        res.render('index', {
+            userName: row.name
+        })
+    }
+
 }

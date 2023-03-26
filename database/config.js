@@ -1,8 +1,8 @@
 const config = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'crudnode'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.PASSWORD,
+    database: process.env.DB_DATABASE
 }
 
 module.exports = config

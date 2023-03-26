@@ -38,9 +38,17 @@ exports.login = (req, res) => {
 }
 
 exports.registroView = (req, res) => {
-    res.render('registro', {
-        alert: false
-    })
+    if (row.rol == 'admin') {
+        res.render('registro', {
+            alert: false
+        })
+
+    } else {
+        res.render('index', {
+            userName: row.name
+        })
+    }
+
 }
 
 exports.registro = async (req, res) => {

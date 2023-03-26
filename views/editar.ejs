@@ -15,7 +15,7 @@
 
                         <h2>Editar el Usuario: <%= user.name %></h2>
 
-                        <form action="/editar" method="post">
+                        <form action="/editar" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" id="id" value="<%= user.id %>">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nombre</label>
@@ -34,6 +34,11 @@
                                     <option <%= user.rol=='suscrip' ? 'selected' : '' %> value="suscrip">Suscriptor
                                     </option>
                                 </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Email</label>
+                                <input type="file" class="form-control" id="image" name="image" tabindex="2">
+                                <img src="../img/<%= user.image %>" alt="" width="70px" height="70px">
                             </div>
                             <button type="submit" class="btn btn-primary" tabindex="4">Editar</button>
                             <a href="/users" class="btn btn-secondary" tabindex="5">Cancelar</a>
