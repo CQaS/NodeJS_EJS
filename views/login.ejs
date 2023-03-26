@@ -1,5 +1,8 @@
 <%- include('templates/header'); %>
 
+
+
+
 <main class="text-center shadow-lg p-4 mb-5">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-right: 150px;">
@@ -34,5 +37,12 @@
     </div>
     <!-- /.content-wrapper -->
 </main>
+
+<% if(alert){ %>
+
+<script>
+    alert('<%= alertMsg %>')
+</script>
+<% } %>
 
 <%- include('templates/footer'); %>

@@ -1,4 +1,9 @@
 <%- include('templates/header'); %>
+<% if(alert){ %>
+<div class="alert alert-danger" role="alert">
+    <%= alertMsg %>
+</div>
+<% } %>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" style="margin-right: 150px;">

@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({
     extended: false
 }))
-//app.use(cookieParser)
+app.use(cookieParser())
 
 app.use('/', router)
 app.use(express.static(path.join(__dirname, '/public')))

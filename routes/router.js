@@ -4,7 +4,7 @@ const userController = require('../controllers/userController')
 const authController = require('../controllers/authController')
 
 
-router.get('/', userController.index)
+router.get('/', authController.esAutenticado, userController.index)
 
 router.get('/users', userController.listar)
 
