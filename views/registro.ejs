@@ -1,17 +1,15 @@
 <%- include('templates/header'); %>
-<%- include('templates/navbar'); %>
-<%- include('templates/aside'); %>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-right: 150px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-md-12">
-                    <h1>CDRUD User con EJS</h1>
+                    <h1>Registro User con EJS</h1>
                     <div class="container">
-                        <form action="/crear" method="post">
+                        <form action="/registro" method="post">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="name" name="name" tabindex="1" autofocus>
@@ -21,13 +19,12 @@
                                 <input type="email" class="form-control" id="email" name="email" tabindex="2">
                             </div>
                             <div class="mb-3">
-                                <select name="rol" id="rol" class="form-select" tabindex="3">
-                                    <option value="admin">Administrador</option>
-                                    <option value="suscrip">Suscriptor</option>
-                                </select>
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" tabindex="3">
                             </div>
-                            <button type="submit" class="btn btn-primary" tabindex="4">Crear</button>
-                            <a href="/users" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                            <button type="submit" class="btn btn-primary" tabindex="4">Registrarse</button>
+                            <a href="/login" class="btn btn-info" tabindex="5">Ya tienes un usuario?</a>
+                            <a href="/" class="btn btn-secondary" tabindex="6">Cancelar</a>
                         </form>
                     </div>
                 </div>

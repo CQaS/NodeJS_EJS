@@ -1,0 +1,38 @@
+<%- include('templates/header'); %>
+
+<main class="text-center shadow-lg p-4 mb-5">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="margin-right: 150px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <h1>Login con EJS</h1>
+                        <div class="container">
+                            <form action="/login" method="post">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" id="email" name="email" tabindex="1"
+                                        autofocus>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        tabindex="2">
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100" tabindex="3">Ingresar</button>
+                                <a href="/registro" class="btn btn-info w-100" tabindex="4">No tienes un Usuario?</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+
+    </div>
+    <!-- /.content-wrapper -->
+</main>
+
+<%- include('templates/footer'); %>

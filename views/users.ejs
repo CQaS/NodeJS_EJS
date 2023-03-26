@@ -1,0 +1,58 @@
+<%- include('templates/header'); %>
+<%- include('templates/navbar'); %>
+<%- include('templates/aside'); %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <h1>CDRUD User con EJS</h1>
+                    <div class="container">
+                        <a href="/crear" class="btn btn-primary mt-4"><i class="fa-solid fa-circle-plus"></i>
+                            Nuevo Usuario</a>
+                        <hr>
+                        <table id="listarusuariosentabla" class="table table-bordered table-striped text-center mt-4">
+                            <thead>
+                                <tr class="bg-primary text-white">
+                                    <th scope="col">id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% lista.forEach((user)=>{ %>
+
+                                <tr>
+                                    <th scope="row"><%= user.id %></th>
+                                    <th><%= user.name %></th>
+                                    <th><%= user.email %></th>
+                                    <th><%= user.rol %></th>
+                                    <td>
+                                        <a href="/editar/<%= user.id %>" class="btn btn-info">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <a onclick="return confirmacion(<%= user.id %>)" class="btn btn-danger">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+
+</div>
+<!-- /.content-wrapper -->
+
+<%- include('templates/footer'); %>

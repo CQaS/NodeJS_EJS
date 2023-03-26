@@ -1,6 +1,10 @@
 const conexion = require('../database/db')
 const userModel = require('../models/userModel')
 
+exports.index = (req, res) => {
+    res.render('index')
+}
+
 exports.listar = (req, res) => {
     userModel.selectUsers(res)
 }
@@ -25,7 +29,7 @@ exports.crear = (req, res) => {
             console.error(err)
             res.render('notfound')
         } else {
-            res.redirect('/')
+            res.redirect('/users')
         }
     })
 }
@@ -61,7 +65,7 @@ exports.editar = (req, res) => {
             console.error(err)
             res.render('notfound')
         } else {
-            res.redirect('/')
+            res.redirect('/users')
         }
     })
 }
@@ -73,7 +77,7 @@ exports.borrar = (req, res) => {
             console.error(err)
             res.render('notfound')
         } else {
-            res.redirect('/')
+            res.redirect('/users')
         }
     })
 }
